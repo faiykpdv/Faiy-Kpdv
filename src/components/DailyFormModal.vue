@@ -32,7 +32,7 @@ const INPUT =
   'width:100%;border:1.5px solid rgba(0,0,0,.14);border-radius:10px;padding:10px 12px;font-size:14px;outline:none;background:#fdfdfb;font-variant-numeric:tabular-nums'
 const LABEL_SPAN = 'display:block;font-size:12px;font-weight:600;color:#54534c;margin-bottom:6px'
 const SEG = 'flex:1;border:none;padding:9px 12px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;transition:all .12s'
-const SEG_ON = SEG + ';background:#fff;color:#1f3a2e;box-shadow:0 1px 3px rgba(0,0,0,.14)'
+const SEG_ON = SEG + ';background:#fff;color:#7c2d12;box-shadow:0 1px 3px rgba(0,0,0,.14)'
 const SEG_OFF = SEG + ';background:transparent;color:#6b6a62'
 </script>
 
@@ -89,22 +89,22 @@ const SEG_OFF = SEG + ';background:transparent;color:#6b6a62'
         </label>
 
         <!-- ຄ່າທີ່ຄິດໄລ່ໃຫ້ອັດຕະໂນມັດ -->
-        <div :style="'border:1px solid rgba(31,107,76,.18);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:' + vals.accentFaint">
+        <div :style="'border:1px solid rgba(194,65,12,.18);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:' + vals.accentFaint">
           <div style="display:flex;align-items:center;justify-content:space-between">
-            <div style="font-size:12.5px;font-weight:700;color:#1f6b4c">ຍອດຈ່າຍ/ວັນ (ອັດຕະໂນມັດ)</div>
-            <div style="font-size:20px;font-weight:800;color:#155;font-variant-numeric:tabular-nums">{{ fmt(dailyAmount) }} ກີບ</div>
+            <div style="font-size:12.5px;font-weight:700;color:#c2410c">ຍອດຈ່າຍ/ວັນ (ອັດຕະໂນມັດ)</div>
+            <div style="font-size:20px;font-weight:800;color:#9a3412;font-variant-numeric:tabular-nums">{{ fmt(dailyAmount) }} ກີບ</div>
           </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px dashed rgba(31,107,76,.25);padding-top:9px;font-size:12.5px;color:#5a6b60">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px dashed rgba(194,65,12,.25);padding-top:9px;font-size:12.5px;color:#7c5a46">
             <span>ຈຳນວນວັນ</span>
             <span style="font-weight:700;color:#3c3b35;font-variant-numeric:tabular-nums">{{ days }} ວັນ</span>
           </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:#5a6b60">
+          <div style="display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:#7c5a46">
             <span>ຍອດລວມທີ່ຕ້ອງຮັບຄືນ</span>
-            <span style="font-weight:700;color:#155;font-variant-numeric:tabular-nums">{{ fmt(pay) }} ກີບ</span>
+            <span style="font-weight:700;color:#9a3412;font-variant-numeric:tabular-nums">{{ fmt(pay) }} ກີບ</span>
           </div>
-          <div v-if="loan > 0" style="display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:#5a6b60">
+          <div v-if="loan > 0" style="display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:#7c5a46">
             <span>ກຳໄລ (ດອກເບ້ຍ)</span>
-            <span style="font-weight:700;color:#1f6b4c;font-variant-numeric:tabular-nums">+{{ fmt(profit) }} ກີບ</span>
+            <span style="font-weight:700;color:#c2410c;font-variant-numeric:tabular-nums">+{{ fmt(profit) }} ກີບ</span>
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@ const SEG_OFF = SEG + ';background:transparent;color:#6b6a62'
         <button style="border:1px solid rgba(0,0,0,.14);background:#fff;border-radius:10px;padding:11px 20px;font-size:13.5px;font-weight:600;cursor:pointer" @click="$emit('close')">ຍົກເລີກ</button>
         <button
           :disabled="saving"
-          :style="'border:none;color:#fff;border-radius:10px;padding:11px 24px;font-size:13.5px;font-weight:700;box-shadow:0 2px 8px rgba(31,107,76,.28);background:' + vals.accent + (saving ? ';opacity:.6;cursor:default' : ';cursor:pointer')"
+          :style="'border:none;color:#fff;border-radius:10px;padding:11px 24px;font-size:13.5px;font-weight:700;box-shadow:0 2px 8px rgba(194,65,12,.28);background:' + vals.accent + (saving ? ';opacity:.6;cursor:default' : ';cursor:pointer')"
           @click="$emit('save')"
         >
           {{ saving ? 'ກຳລັງบັนທຶກ…' : 'ບັນທຶກ' }}

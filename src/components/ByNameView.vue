@@ -42,7 +42,7 @@ const TH_C = 'text-align:center;padding:11px 20px;font-size:12px;font-weight:700
           </div>
           <div style="text-align:right">
             <div style="font-size:11px;color:#8a897f;font-weight:600">ຕ້ອງຈ່າຍລວມ</div>
-            <div style="font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;color:#1f6b4c">{{ p.returnStr }}</div>
+            <div style="font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;color:#c2410c">{{ p.returnStr }}</div>
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ const TH_C = 'text-align:center;padding:11px 20px;font-size:12px;font-weight:700
               <td style="padding:13px 20px;font-size:13.5px;font-weight:600">{{ r.name }}</td>
               <td style="padding:13px 20px;font-size:13.5px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums">{{ r.loanStr }}</td>
               <td style="padding:13px 20px;font-size:13px;font-variant-numeric:tabular-nums">{{ r.returnDate }}</td>
-              <td style="padding:13px 20px;font-size:13.5px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:#155">{{ r.payStr }}</td>
+              <td style="padding:13px 20px;font-size:13.5px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:#9a3412">{{ r.payStr }}</td>
               <td style="padding:13px 20px;text-align:center">
                 <span v-if="r.paid" style="background:#e7f2ea;color:#1f6b4c;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:20px">ຈ່າຍແລ້ວ</span>
                 <span v-if="r.notPaid" style="background:#faf1e2;color:#b07d2e;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:20px">ຄ້າງຈ່າຍ</span>
@@ -75,7 +75,7 @@ const TH_C = 'text-align:center;padding:11px 20px;font-size:12px;font-weight:700
               <td></td>
               <td style="padding:14px 20px;font-size:14px;text-align:right;font-weight:800;font-variant-numeric:tabular-nums;color:#5a4a24">{{ p.loanTot2 }}</td>
               <td style="padding:14px 20px;font-size:13px;font-variant-numeric:tabular-nums;color:#5a4a24">{{ p.lastReturn }}</td>
-              <td style="padding:14px 20px;font-size:14px;text-align:right;font-weight:800;font-variant-numeric:tabular-nums;color:#155">{{ p.payTot2 }}</td>
+              <td style="padding:14px 20px;font-size:14px;text-align:right;font-weight:800;font-variant-numeric:tabular-nums;color:#9a3412">{{ p.payTot2 }}</td>
               <td></td>
             </tr>
           </tbody>

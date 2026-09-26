@@ -21,7 +21,7 @@ import DailyFormModal from './components/DailyFormModal.vue'
 import Icon from './components/Icon.vue'
 
 const props = defineProps({
-  accentColor: { type: String, default: '#1f6b4c' },
+  accentColor: { type: String, default: '#c2410c' },
   defaultPct: { type: Number, default: 20 },
 })
 
@@ -369,7 +369,7 @@ function isDailyDone(e) {
 
 // ---- ຄ່າທີ່ຄິດໄລ່ (derived) ----
 const vals = computed(() => {
-  const accent = props.accentColor ?? '#1f6b4c'
+  const accent = props.accentColor ?? '#c2410c'
   const allEntries = entries.value || []
   const q = (searchName.value || '').trim().toLowerCase()
   const sd = start.value ? new Date(start.value + 'T00:00:00') : null
@@ -457,8 +457,8 @@ const vals = computed(() => {
 
   return {
     accent,
-    accentSoft: '#8fd6b0',
-    accentFaint: '#eef4ee',
+    accentSoft: '#fdba74',
+    accentFaint: '#fff1e6',
     sumLoanStr: fmt(sumLoan),
     sumReturnStr: fmt(sumReturn),
     sumProfitStr: fmt(sumReturn - sumLoan),
@@ -481,7 +481,7 @@ const vals = computed(() => {
 
 // ---- ຄ່າ derived ຂອງແຜນຈ່າຍລາຍວັນ ----
 const dailyVals = computed(() => {
-  const accent = props.accentColor ?? '#1f6b4c'
+  const accent = props.accentColor ?? '#c2410c'
   const all = dailyEntries.value || []
   const q = (searchName.value || '').trim().toLowerCase()
   const sd = start.value ? new Date(start.value + 'T00:00:00') : null
@@ -590,7 +590,7 @@ const dailyVals = computed(() => {
 
 // ---- ໜ້າ "ຈ່າຍແລ້ວ" — ລວມລາຍການທີ່ຈ່າຍຄົບ (ຄັ້ງດຽວ + ລາຍວັນ) ຈັດກຸ່ມຕາມຊື່ດຽວກັນ ----
 const paidVals = computed(() => {
-  const accent = props.accentColor ?? '#1f6b4c'
+  const accent = props.accentColor ?? '#c2410c'
   const q = (searchName.value || '').trim().toLowerCase()
   const sd = start.value ? new Date(start.value + 'T00:00:00') : null
   const ed = end.value ? new Date(end.value + 'T23:59:59') : null

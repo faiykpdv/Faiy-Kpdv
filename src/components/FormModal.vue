@@ -12,7 +12,7 @@ defineProps({
 defineEmits(['field', 'save', 'close', 'switch'])
 
 const SEG = 'flex:1;border:none;padding:9px 12px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;transition:all .12s'
-const SEG_ON = SEG + ';background:#fff;color:#1f3a2e;box-shadow:0 1px 3px rgba(0,0,0,.14)'
+const SEG_ON = SEG + ';background:#fff;color:#7c2d12;box-shadow:0 1px 3px rgba(0,0,0,.14)'
 const SEG_OFF = SEG + ';background:transparent;color:#6b6a62'
 
 // ໃສ່ຈຸດ​ພັນ (comma) ໃຫ້ຕົວເລກຂະນະພິມ; ຫວ່າງ → "" (ໃຫ້ placeholder ຂຶ້ນ)
@@ -73,9 +73,9 @@ const LABEL_SPAN = 'display:block;font-size:12px;font-weight:600;color:#54534c;m
           </label>
         </div>
 
-        <div :style="'border:1px solid rgba(31,107,76,.18);border-radius:12px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;background:' + vals.accentFaint">
-          <div style="font-size:12.5px;font-weight:600;color:#1f6b4c">ຈຳນວນທີ່ຕ້ອງຈ່າຍຄືນ</div>
-          <div style="font-size:19px;font-weight:800;color:#155;font-variant-numeric:tabular-nums">{{ vals.computedPayStr }}</div>
+        <div :style="'border:1px solid rgba(194,65,12,.18);border-radius:12px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;background:' + vals.accentFaint">
+          <div style="font-size:12.5px;font-weight:600;color:#c2410c">ຈຳນວນທີ່ຕ້ອງຈ່າຍຄືນ</div>
+          <div style="font-size:19px;font-weight:800;color:#9a3412;font-variant-numeric:tabular-nums">{{ vals.computedPayStr }}</div>
         </div>
 
         <label style="display:block">
@@ -84,7 +84,7 @@ const LABEL_SPAN = 'display:block;font-size:12px;font-weight:600;color:#54534c;m
         </label>
 
         <label style="display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none">
-          <input type="checkbox" :checked="form.paid" style="width:18px;height:18px;accent-color:#1f6b4c;cursor:pointer" @change="$emit('field', 'paid', $event.target.checked)" />
+          <input type="checkbox" :checked="form.paid" style="width:18px;height:18px;accent-color:#c2410c;cursor:pointer" @change="$emit('field', 'paid', $event.target.checked)" />
           <span style="font-size:13.5px;font-weight:600;color:#3c3b35">ຈ່າຍຄືນແລ້ວ</span>
         </label>
       </div>
@@ -93,7 +93,7 @@ const LABEL_SPAN = 'display:block;font-size:12px;font-weight:600;color:#54534c;m
         <button style="border:1px solid rgba(0,0,0,.14);background:#fff;border-radius:10px;padding:11px 20px;font-size:13.5px;font-weight:600;cursor:pointer" @click="$emit('close')">ຍົກເລີກ</button>
         <button
           :disabled="saving"
-          :style="'border:none;color:#fff;border-radius:10px;padding:11px 24px;font-size:13.5px;font-weight:700;box-shadow:0 2px 8px rgba(31,107,76,.28);background:' + vals.accent + (saving ? ';opacity:.6;cursor:default' : ';cursor:pointer')"
+          :style="'border:none;color:#fff;border-radius:10px;padding:11px 24px;font-size:13.5px;font-weight:700;box-shadow:0 2px 8px rgba(194,65,12,.28);background:' + vals.accent + (saving ? ';opacity:.6;cursor:default' : ';cursor:pointer')"
           @click="$emit('save')"
         >
           {{ saving ? 'ກຳລັງบັนທຶກ…' : 'ບັນທຶກ' }}

@@ -36,7 +36,7 @@ const TH_C = 'text-align:center;padding:11px 20px;font-size:12px;font-weight:700
         </div>
         <div style="text-align:right">
           <div style="font-size:11px;color:#8a897f;font-weight:600">ກຳໄລ</div>
-          <div style="font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;color:#155">{{ pv.sumProfitStr }}</div>
+          <div style="font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;color:#9a3412">{{ pv.sumProfitStr }}</div>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@ const TH_C = 'text-align:center;padding:11px 20px;font-size:12px;font-weight:700
       :key="p.key"
       style="background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)"
     >
-      <div style="padding:16px 22px;background:linear-gradient(180deg,#f2f7f3,#fff);border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
+      <div style="padding:16px 22px;background:linear-gradient(180deg,#fff7ed,#fff);border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
         <div style="display:flex;align-items:center;gap:13px">
           <div :style="'width:46px;height:46px;border-radius:13px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800;background:' + pv.accent">
             {{ p.initial }}
@@ -82,7 +82,7 @@ const TH_C = 'text-align:center;padding:11px 20px;font-size:12px;font-weight:700
           </div>
           <div style="text-align:right">
             <div style="font-size:11px;color:#8a897f;font-weight:600">ກຳໄລ</div>
-            <div style="font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;color:#155">{{ p.profitStr }}</div>
+            <div style="font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;color:#9a3412">{{ p.profitStr }}</div>
           </div>
         </div>
       </div>
@@ -114,7 +114,7 @@ const TH_C = 'text-align:center;padding:11px 20px;font-size:12px;font-weight:700
               <td style="padding:13px 20px;font-size:13px;font-variant-numeric:tabular-nums">{{ r.startDate }}</td>
               <td style="padding:13px 20px;font-size:13.5px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums">{{ r.loanStr }}</td>
               <td style="padding:13px 20px;font-size:13px;font-variant-numeric:tabular-nums">{{ r.returnDate }}</td>
-              <td style="padding:13px 20px;font-size:13.5px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:#155">{{ r.payStr }}</td>
+              <td style="padding:13px 20px;font-size:13.5px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:#9a3412">{{ r.payStr }}</td>
               <td style="padding:13px 20px;text-align:center">
                 <span style="background:#e7f2ea;color:#1f6b4c;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px">
                   <Icon name="check" :size="12" /> ຈ່າຍແລ້ວ
@@ -130,7 +130,7 @@ const TH_C = 'text-align:center;padding:11px 20px;font-size:12px;font-weight:700
                     <Icon name="rotate" :size="13" /> ຄືນສະຖານະ
                   </button>
                   <button
-                    style="border:1px solid rgba(179,73,47,.25);background:#fff;border-radius:8px;width:30px;height:30px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:#b3492f"
+                    style="border:1px solid rgba(185,28,28,.25);background:#fff;border-radius:8px;width:30px;height:30px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:#b91c1c"
                     title="ລຶບຖາວອນ"
                     @click="$emit('delete', r.id, r.isDaily)"
                   >
@@ -144,7 +144,7 @@ const TH_C = 'text-align:center;padding:11px 20px;font-size:12px;font-weight:700
               <td></td>
               <td style="padding:14px 20px;font-size:14px;text-align:right;font-weight:800;font-variant-numeric:tabular-nums;color:#5a4a24">{{ p.loanTot2 }}</td>
               <td style="padding:14px 20px;font-size:13px;font-variant-numeric:tabular-nums;color:#5a4a24">{{ p.lastReturn }}</td>
-              <td style="padding:14px 20px;font-size:14px;text-align:right;font-weight:800;font-variant-numeric:tabular-nums;color:#155">{{ p.payTot2 }}</td>
+              <td style="padding:14px 20px;font-size:14px;text-align:right;font-weight:800;font-variant-numeric:tabular-nums;color:#9a3412">{{ p.payTot2 }}</td>
               <td></td>
               <td></td>
             </tr>

@@ -8,7 +8,7 @@ defineEmits(['show-all', 'show-by-name', 'show-daily', 'show-paid', 'open-new'])
 
 const TAB_BASE =
   'border:none;padding:9px 18px;border-radius:9px;font-size:13.5px;font-weight:700;cursor:pointer;transition:all .12s;'
-const TAB_ON = TAB_BASE + 'background:#fff;color:#1f3a2e;box-shadow:0 1px 3px rgba(0,0,0,.12);'
+const TAB_ON = TAB_BASE + 'background:#fff;color:#7c2d12;box-shadow:0 1px 3px rgba(0,0,0,.12);'
 const TAB_OFF = TAB_BASE + 'background:transparent;color:#6b6a62;'
 </script>
 
@@ -39,7 +39,7 @@ const TAB_OFF = TAB_BASE + 'background:transparent;color:#6b6a62;'
         ຄ້າງຈ່າຍ {{ vals.countStr }} ລາຍການ
       </div>
       <button
-        :style="'color:#fff;border:none;border-radius:10px;padding:11px 18px;font-size:13.5px;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(31,107,76,.28);display:inline-flex;align-items:center;gap:6px;background:' + vals.accent"
+        :style="'color:#fff;border:none;border-radius:10px;padding:11px 18px;font-size:13.5px;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(194,65,12,.28);display:inline-flex;align-items:center;gap:6px;background:' + vals.accent"
         @click="$emit('open-new')"
       >
         <Icon name="plus" :size="16" /> {{ vals.isDaily ? 'ເພີ່ມແຜນລາຍວັນ' : 'ເພີ່ມລາຍການກູ້' }}

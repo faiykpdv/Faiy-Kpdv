@@ -53,13 +53,13 @@ const ACTION_BTN = 'border:1px solid rgba(0,0,0,.12);background:#fff;border-radi
             </div>
             <div>
               <div style="font-size:11px;color:#8a897f;font-weight:600">ຕ້ອງຮັບຄืນລວມ</div>
-              <div style="font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;color:#155">{{ p.totalStr }}</div>
+              <div style="font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;color:#9a3412">{{ p.totalStr }}</div>
             </div>
           </div>
         </div>
         <!-- ແຖບຄວາມคืบหน้ารวมของคนนี้ -->
         <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin:12px 0 6px">
-          <span style="color:#1f6b4c;font-variant-numeric:tabular-nums">ຮັບແລ້ວ {{ p.collectedStr }}</span>
+          <span style="color:#c2410c;font-variant-numeric:tabular-nums">ຮັບແລ້ວ {{ p.collectedStr }}</span>
           <span style="color:#b07d2e;font-variant-numeric:tabular-nums">ຍັງເຫຼືອ {{ p.remainingStr }}</span>
         </div>
         <div style="height:8px;background:#eceae2;border-radius:99px;overflow:hidden">
@@ -87,7 +87,7 @@ const ACTION_BTN = 'border:1px solid rgba(0,0,0,.12);background:#fff;border-radi
               style="background:#faf1e2;color:#b07d2e;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;font-variant-numeric:tabular-nums"
             >{{ pl.paidCount }}/{{ pl.days }} ວັນ</span>
             <button :style="ACTION_BTN + ';font-size:13px'" title="ແກ້ໄຂ" @click="$emit('edit', pl.id)"><Icon name="edit" :size="15" /></button>
-            <button style="border:1px solid rgba(179,73,47,.25);background:#fff;border-radius:8px;width:30px;height:30px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:#b3492f" title="ລຶບ" @click="$emit('delete', pl.id)"><Icon name="trash" :size="15" /></button>
+            <button style="border:1px solid rgba(185,28,28,.25);background:#fff;border-radius:8px;width:30px;height:30px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:#b91c1c" title="ລຶບ" @click="$emit('delete', pl.id)"><Icon name="trash" :size="15" /></button>
           </div>
         </div>
 
@@ -100,7 +100,7 @@ const ACTION_BTN = 'border:1px solid rgba(0,0,0,.12);background:#fff;border-radi
             :style="
               'width:38px;height:38px;border-radius:9px;font-size:12.5px;font-weight:700;cursor:pointer;font-variant-numeric:tabular-nums;transition:all .12s;' +
               (c.paid
-                ? 'border:none;color:#fff;box-shadow:0 1px 4px rgba(31,107,76,.35);background:' + dv.accent
+                ? 'border:none;color:#fff;box-shadow:0 1px 4px rgba(194,65,12,.35);background:' + dv.accent
                 : 'border:1.5px solid rgba(0,0,0,.14);background:#fdfdfb;color:#6b6a62')
             "
             @click="$emit('toggle-day', pl.id, c.n)"
