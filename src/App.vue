@@ -8,7 +8,7 @@ import {
   deleteDailyLoan,
   setDailyPaidDays,
 } from './supabase'
-import { parseDMY, toISO, fmt, fmt2, pctOf, parseNum, daysBetween, roundKip, addDays } from './helpers'
+import { parseDMY, toISO, isoToDMY, fmt, fmt2, pctOf, parseNum, daysBetween, roundKip, addDays } from './helpers'
 import AppHeader from './components/AppHeader.vue'
 import Toolbar from './components/Toolbar.vue'
 import DateFilter from './components/DateFilter.vue'
@@ -104,9 +104,12 @@ function setDailyField(k, v) {
   syncDays(dailyForm, 'startDate', k)
 }
 
+// ຟອມໃໝ່ເລີ່ມວັນທີ່ຢືມ/ວັນເລີ່ມ = ມື້ນີ້ → ເລືອກວັນຄືນແລ້ວໄດ້ຈຳນວນວັນທັນທີ
+const todayDMY = () => isoToDMY(toISO(new Date()))
+
 function resetLumpForm() {
   Object.assign(form, {
-    borrowDate: '',
+    borrowDate: todayDMY(),
     name: '',
     loan: '',
     pct: String(props.defaultPct ?? 20),
@@ -117,7 +120,7 @@ function resetLumpForm() {
 }
 function resetDailyForm() {
   Object.assign(dailyForm, {
-    startDate: '',
+    startDate: todayDMY(),
     name: '',
     loan: '',
     pct: String(props.defaultPct ?? 20),

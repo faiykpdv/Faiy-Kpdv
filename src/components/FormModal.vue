@@ -54,7 +54,7 @@ const LABEL_SPAN = 'display:block;font-size:12px;font-weight:600;color:#54534c;m
         <div class="fm-row" style="display:flex;gap:14px">
           <label style="flex:1;display:block">
             <span :style="LABEL_SPAN">ວັນທີ່ຢືມ</span>
-            <DateField :value="form.borrowDate" placeholder="09/07/2026" @update="$emit('field', 'borrowDate', $event)" />
+            <DateField :value="form.borrowDate" @update="$emit('field', 'borrowDate', $event)" />
           </label>
           <label style="flex:1;display:block">
             <span :style="LABEL_SPAN">ຊື່ຜູ້ກູ້</span>
@@ -82,7 +82,7 @@ const LABEL_SPAN = 'display:block;font-size:12px;font-weight:600;color:#54534c;m
           </label>
           <label style="flex:1.4;display:block">
             <span :style="LABEL_SPAN">ວັນທີ່ຄືນ / ກຳນົດຈ່າຍ</span>
-            <DateField :value="form.returnDate" placeholder="17/07/2026" @update="$emit('field', 'returnDate', $event)" />
+            <DateField :value="form.returnDate" @update="$emit('field', 'returnDate', $event)" />
           </label>
         </div>
 
