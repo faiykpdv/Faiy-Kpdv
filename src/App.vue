@@ -8,7 +8,7 @@ import {
   deleteDailyLoan,
   setDailyPaidDays,
 } from './supabase'
-import { parseDMY, toISO, fmt, fmt2, pctOf, parseNum, daysBetween, roundKip } from './helpers'
+import { parseDMY, toISO, fmt, fmt2, pctOf, parseNum, daysBetween, roundKip, addDays } from './helpers'
 import AppHeader from './components/AppHeader.vue'
 import Toolbar from './components/Toolbar.vue'
 import DateFilter from './components/DateFilter.vue'
@@ -43,7 +43,7 @@ const isMobile = ref(false) // จอ ≤ 560px → แสดงเฉพาะ�
 const toast = ref('') // ข้อความแจ้งเตือนชั่วคราว
 let toastTimer = null
 const form = reactive({ borrowDate: '', name: '', loan: '', pct: '', returnDate: '', paid: false })
-const dailyForm = reactive({ startDate: '', name: '', loan: '', pct: '', returnDate: '' })
+const dailyForm = reactive({ startDate: '', name: '', loan: '', pct: '', days: '', returnDate: '' })
 
 let mq = null
 const onMqChange = (e) => {
@@ -86,8 +86,17 @@ onBeforeUnmount(() => {
 function setField(k, v) {
   form[k] = v
 }
+// ຊິງ ຈຳນວນວັນ ↔ ວັນທີ່ຄືນ: ພິມຈຳນວນວັນ → ຄິດວັນຄືນໃຫ້ (ວັນເລີ່ມ + n); ເລືອກວັນຄືນ → ຄິດຈຳນວນວັນໃຫ້
 function setDailyField(k, v) {
   dailyForm[k] = v
+  const n = parseInt(dailyForm.days, 10) || 0
+  if (k === 'days' || (k === 'startDate' && n > 0)) {
+    const ret = addDays(dailyForm.startDate, n)
+    if (ret) dailyForm.returnDate = ret
+  } else if (k === 'returnDate' || k === 'startDate') {
+    const d = daysBetween(dailyForm.startDate, dailyForm.returnDate)
+    dailyForm.days = d ? String(d) : ''
+  }
 }
 
 function resetLumpForm() {
@@ -106,6 +115,7 @@ function resetDailyForm() {
     name: '',
     loan: '',
     pct: String(props.defaultPct ?? 20),
+    days: '',
     returnDate: '',
   })
 }
@@ -150,6 +160,7 @@ function openDailyEdit(e) {
     name: e.name,
     loan: e.loan ? fmt(e.loan) : '',
     pct: String(pctOf({ loan: e.loan, pay: e.pay })),
+    days: String(daysBetween(e.startDate, e.returnDate) || ''),
     returnDate: e.returnDate,
   })
   showForm.value = true

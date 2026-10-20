@@ -83,10 +83,18 @@ const SEG_OFF = SEG + ';background:transparent;color:#6b6a62'
           </label>
         </div>
 
-        <label style="display:block">
-          <span :style="LABEL_SPAN">ວັນທີ່ຄືນ / ກຳນົດຈ່າຍ</span>
-          <DateField :value="form.returnDate" placeholder="17/08/2026" @update="$emit('field', 'returnDate', $event)" />
-        </label>
+        <!-- ພິມຈຳນວນວັນ → ຄິດວັນຄືນໃຫ້ອັດຕະໂນມັດ (ຫຼື ເລືອກວັນຄືນ → ຄິດຈຳນວນວັນໃຫ້) -->
+        <div class="fm-row" style="display:flex;gap:14px">
+          <label style="flex:1;display:block">
+            <span :style="LABEL_SPAN">ຈຳນວນວັນ</span>
+            <input :value="form.days" :style="INPUT" inputmode="numeric" placeholder="45" @input="$emit('field', 'days', $event.target.value.replace(/[^0-9]/g, ''))" />
+            <span v-if="form.days && !form.startDate" style="display:block;margin-top:5px;font-size:11.5px;color:#b07d2e">ເລືອກວັນເລີ່ມຈ່າຍກ່ອນ</span>
+          </label>
+          <label style="flex:1.4;display:block">
+            <span :style="LABEL_SPAN">ວັນທີ່ຄືນ / ກຳນົດຈ່າຍ</span>
+            <DateField :value="form.returnDate" placeholder="17/08/2026" @update="$emit('field', 'returnDate', $event)" />
+          </label>
+        </div>
 
         <!-- ຄ່າທີ່ຄິດໄລ່ໃຫ້ອັດຕະໂນມັດ -->
         <div :style="'border:1px solid rgba(194,65,12,.18);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:' + vals.accentFaint">

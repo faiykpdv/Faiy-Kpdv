@@ -66,6 +66,14 @@ export function daysBetween(startDmy, endDmy) {
   return n > 0 ? n : 0
 }
 
+// ບວກ n ວັນໃສ່ວັນທີ່ (D/M/YY) → "D/M/YY" — ໃຊ້ຄິດວັນຄືນຈາກ ວັນເລີ່ມ + ຈຳນວນວັນ; "" ຖ້າແປງບໍ່ໄດ້
+export function addDays(dmy, n) {
+  const d = parseDMY(dmy)
+  if (!d || !(n > 0)) return ''
+  d.setDate(d.getDate() + n)
+  return isoToDMY(toISO(d))
+}
+
 // "2026-07-06" (ISO) -> "6/7/26" (D/M/YY); "" ຖ້າຫວ່າງ
 export function isoToDMY(iso) {
   if (!iso) return ''
