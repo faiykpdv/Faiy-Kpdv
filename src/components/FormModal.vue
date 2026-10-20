@@ -73,11 +73,6 @@ const LABEL_SPAN = 'display:block;font-size:12px;font-weight:600;color:#54534c;m
           </label>
         </div>
 
-        <div :style="'border:1px solid rgba(194,65,12,.18);border-radius:12px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;background:' + vals.accentFaint">
-          <div style="font-size:12.5px;font-weight:600;color:#c2410c">ຈຳນວນທີ່ຕ້ອງຈ່າຍຄືນ</div>
-          <div style="font-size:19px;font-weight:800;color:#9a3412;font-variant-numeric:tabular-nums">{{ vals.computedPayStr }}</div>
-        </div>
-
         <!-- ພິມຈຳນວນວັນ → ຄິດວັນຄືນໃຫ້ອັດຕະໂນມັດ (ຫຼື ເລືອກວັນຄືນ → ຄິດຈຳນວນວັນໃຫ້) -->
         <div class="fm-row" style="display:flex;gap:14px">
           <label style="flex:1;display:block">
@@ -95,6 +90,12 @@ const LABEL_SPAN = 'display:block;font-size:12px;font-weight:600;color:#54534c;m
           <input type="checkbox" :checked="form.paid" style="width:18px;height:18px;accent-color:#c2410c;cursor:pointer" @change="$emit('field', 'paid', $event.target.checked)" />
           <span style="font-size:13.5px;font-weight:600;color:#3c3b35">ຈ່າຍຄືນແລ້ວ</span>
         </label>
+
+        <!-- ຍອດທີ່ຄິດໄລ່ໃຫ້ — ວາງໄວ້ທ້າຍຊ່ອງ input (ຄືຟອມລາຍວັນ) -->
+        <div :style="'border:1px solid rgba(194,65,12,.18);border-radius:12px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;background:' + vals.accentFaint">
+          <div style="font-size:12.5px;font-weight:600;color:#c2410c">ຈຳນວນທີ່ຕ້ອງຈ່າຍຄືນ</div>
+          <div style="font-size:19px;font-weight:800;color:#9a3412;font-variant-numeric:tabular-nums">{{ vals.computedPayStr }}</div>
+        </div>
       </div>
 
       <div class="fm-foot" style="padding:16px 26px;background:#f8f6f0;border-top:1px solid rgba(0,0,0,.06);display:flex;gap:12px;justify-content:flex-end">
