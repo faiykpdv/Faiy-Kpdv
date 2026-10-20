@@ -42,7 +42,7 @@ const saving = ref(false)
 const isMobile = ref(false) // จอ ≤ 560px → แสดงเฉพาะฟอร์มกรอกข้อมูล
 const toast = ref('') // ข้อความแจ้งเตือนชั่วคราว
 let toastTimer = null
-const form = reactive({ borrowDate: '', name: '', loan: '', pct: '', returnDate: '', paid: false })
+const form = reactive({ borrowDate: '', name: '', loan: '', pct: '', days: '', returnDate: '', paid: false })
 const dailyForm = reactive({ startDate: '', name: '', loan: '', pct: '', days: '', returnDate: '' })
 
 let mq = null
@@ -83,20 +83,25 @@ onBeforeUnmount(() => {
 })
 
 // ---- actions ----
+// ຊິງ ຈຳນວນວັນ ↔ ວັນທີ່ຄືນ (ໃຊ້ທັງ 2 ຟອມ): ພິມຈຳນວນວັນ → ຄິດວັນຄືນໃຫ້ (ວັນເລີ່ມ + n);
+// ເລືອກວັນຄືນ → ຄິດຈຳນວນວັນໃຫ້; ປ່ຽນວັນເລີ່ມ → ຮັກສາຈຳນວນວັນ ແລ້ວເລື່ອນວັນຄືນຕາມ
+function syncDays(f, startKey, k) {
+  const n = parseInt(f.days, 10) || 0
+  if (k === 'days' || (k === startKey && n > 0)) {
+    const ret = addDays(f[startKey], n)
+    if (ret) f.returnDate = ret
+  } else if (k === 'returnDate' || k === startKey) {
+    const d = daysBetween(f[startKey], f.returnDate)
+    f.days = d ? String(d) : ''
+  }
+}
 function setField(k, v) {
   form[k] = v
+  syncDays(form, 'borrowDate', k)
 }
-// ຊິງ ຈຳນວນວັນ ↔ ວັນທີ່ຄືນ: ພິມຈຳນວນວັນ → ຄິດວັນຄືນໃຫ້ (ວັນເລີ່ມ + n); ເລືອກວັນຄືນ → ຄິດຈຳນວນວັນໃຫ້
 function setDailyField(k, v) {
   dailyForm[k] = v
-  const n = parseInt(dailyForm.days, 10) || 0
-  if (k === 'days' || (k === 'startDate' && n > 0)) {
-    const ret = addDays(dailyForm.startDate, n)
-    if (ret) dailyForm.returnDate = ret
-  } else if (k === 'returnDate' || k === 'startDate') {
-    const d = daysBetween(dailyForm.startDate, dailyForm.returnDate)
-    dailyForm.days = d ? String(d) : ''
-  }
+  syncDays(dailyForm, 'startDate', k)
 }
 
 function resetLumpForm() {
@@ -105,6 +110,7 @@ function resetLumpForm() {
     name: '',
     loan: '',
     pct: String(props.defaultPct ?? 20),
+    days: '',
     returnDate: '',
     paid: false,
   })
@@ -145,6 +151,7 @@ function openEdit(e) {
     name: e.name,
     loan: fmt(e.loan),
     pct: String(pctOf(e)),
+    days: String(daysBetween(e.borrowDate, e.returnDate) || ''),
     returnDate: e.returnDate,
     paid: e.paid,
   })

@@ -78,10 +78,18 @@ const LABEL_SPAN = 'display:block;font-size:12px;font-weight:600;color:#54534c;m
           <div style="font-size:19px;font-weight:800;color:#9a3412;font-variant-numeric:tabular-nums">{{ vals.computedPayStr }}</div>
         </div>
 
-        <label style="display:block">
-          <span :style="LABEL_SPAN">ວັນທີ່ຄືນ / ກຳນົດຈ່າຍ</span>
-          <DateField :value="form.returnDate" placeholder="17/07/2026" @update="$emit('field', 'returnDate', $event)" />
-        </label>
+        <!-- ພິມຈຳນວນວັນ → ຄິດວັນຄືນໃຫ້ອັດຕະໂນມັດ (ຫຼື ເລືອກວັນຄືນ → ຄິດຈຳນວນວັນໃຫ້) -->
+        <div class="fm-row" style="display:flex;gap:14px">
+          <label style="flex:1;display:block">
+            <span :style="LABEL_SPAN">ຈຳນວນວັນ</span>
+            <input :value="form.days" :style="INPUT" inputmode="numeric" placeholder="8" @input="$emit('field', 'days', $event.target.value.replace(/[^0-9]/g, ''))" />
+            <span v-if="form.days && !form.borrowDate" style="display:block;margin-top:5px;font-size:11.5px;color:#b07d2e">ເລືອກວັນທີ່ຢືມກ່ອນ</span>
+          </label>
+          <label style="flex:1.4;display:block">
+            <span :style="LABEL_SPAN">ວັນທີ່ຄືນ / ກຳນົດຈ່າຍ</span>
+            <DateField :value="form.returnDate" placeholder="17/07/2026" @update="$emit('field', 'returnDate', $event)" />
+          </label>
+        </div>
 
         <label style="display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none">
           <input type="checkbox" :checked="form.paid" style="width:18px;height:18px;accent-color:#c2410c;cursor:pointer" @change="$emit('field', 'paid', $event.target.checked)" />
